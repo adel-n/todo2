@@ -30,8 +30,6 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('mysql:mysql-connector-java')
 	runtime('org.postgresql:postgresql')
-	compile('org.webjars', name: 'bootstrap', version: '3.3.7-1')
-	compile('org.webjars.bower', name: 'jquery', version: '3.2.1')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
