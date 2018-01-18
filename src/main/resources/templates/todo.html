@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo CRUD App</title>
+    <meta charset="UTF-8"/>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<h1>Todos for today</h1>
+<p><a class="btn btn-primary" th:href="@{/todo/add}" method="post">Add new todo</a></p>
+<p><a class="btn btn-primary" th:href="@{addassignee}" method="post">List of assignees</a></p>
+
+<form th:action="@{search}" method="get">
+    <input class="form-control" type="text" name="search" placeholder="Search .."/>
+
+    <input type="submit" value="Submit" class="btn btn-default"/>
+</form>
+
+
+<div class="table-responsive">
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>Done</th>
+        <th>Urgent</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="todo: ${todosList}" th:object="${todo}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.isUrgent}"></td>
+        <td th:text="${todo.isDone}"></td>
+        <td>
+            <form action="#" th:action="@{/edit/} + *{id}" method="get">
+                <input class="btn btn-default" value="edit" type="submit"/>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{/delete/} + *{id}" method="post">
+                <input class="btn btn-danger" value="delete" type="submit"/>
+            </form>
+        </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

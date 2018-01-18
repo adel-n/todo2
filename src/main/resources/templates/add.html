@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <title>Add new todo</title>
+</head>
+<body>
+<h1>Add new todo</h1>
+<div class="form-group">
+    <form  action="#" th:action="@{/todo/add}" th:object="${todo}" method="post">
+        <div>
+        <input type="text" th:field="*{title}"/>
+        </div>
+    <div class="checkbox">
+        <label for="isUrgent">Urgent? </label>
+        <input id="isUrgent" type="checkbox" th:field="${todo.isUrgent}" />
+    </div>
+    <div class="checkbox">
+        <label for="isDone">Done? </label>
+        <input id="isDone" type="checkbox" th:field="${todo.isDone}" />
+    </div>
+    <div>
+        <input class="btn btn-default" type="submit" value="Submit" />
+    </div>
+    </form>
+</div>
+</body>
+</html>

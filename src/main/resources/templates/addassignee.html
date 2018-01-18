@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Add assignee</title>
+</head>
+<body>
+<h1>Add new assignee</h1>
+<div class="form-group">
+    <form  action="#" th:action="@{/addassignee}" th:object="${assignee}" method="post">
+        <div>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <input type="text" th:field="*{email}"/>
+        </div>
+        <div class="checkbox">
+            <label for="isDone">Done? </label>
+            <input id="isDone" type="checkbox" th:field="${todo.isDone}" />
+        </div>
+        <div>
+            <input class="btn btn-default" type="submit" value="Submit" />
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

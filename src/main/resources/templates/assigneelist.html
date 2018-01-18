@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>List of assignees</title>
+</head>
+<body>
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Todos</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="todo: ${assigneeList}" th:object="${assignee}">
+            <td th:text="${assignee.id}"></td>
+            <td th:text="${assignee.name}"></td>
+            <td>
+                <form action="#" th:action="@{/editassignee/} + *{id}" method="get">
+                    <input class="btn btn-default" value="edit" type="submit"/>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{/deleteassignee/} + *{id}" method="post">
+                    <input class="btn btn-danger" value="delete" type="submit"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

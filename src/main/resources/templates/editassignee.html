@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Edit Assignee</title>
+</head>
+<body>
+
+<div class="form-group">
+    <form action="#" th:action="@{/editassignee/} + *{id}" th:object="${assignee}" method="post">
+        <div>
+            <label for="name">Assignee name: </label>
+            <input id="name" type="text" th:field="${assignee.name}" />
+        </div>
+        <div>
+            <label for="email">Assignee email: </label>
+            <input id="email" type="text" th:field="${assignee.email}"/>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
